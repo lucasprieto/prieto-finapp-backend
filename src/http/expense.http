@@ -1,0 +1,43 @@
+# baseURL
+@baseURL = http://localhost:3001/expense
+
+###
+# Find All Expenses
+GET {{ baseURL }}/
+
+###
+# Find All Expenses categories
+GET http://localhost:3001/categories
+
+###
+# Find Expense By Id
+GET {{ baseURL }}/634f43ed70f0f2d7d44ab4ab
+
+###
+# Create Expense
+POST {{ baseURL }}/
+Content-Type: application/json
+
+{
+  "date": "2023-03-07T12:44:51",
+  "category": "Test 2",
+  "description": "test {{$guid}}",
+  "paymentMethod": "cash",
+  "value": {{$randomInt 100 100000}}
+}
+
+###
+# Edit Expense
+PUT {{ baseURL }}/634f4bac8d0a66995759fdca
+Content-Type: application/json
+
+{
+  "date": "2023-02-07T12:44:51",
+  "description": "test",
+  "paymentMethod": "cash",
+  "value": 15
+}
+
+###
+# Delete Expense
+DELETE {{ baseURL }}/634f4bac8d0a66995759fdca
