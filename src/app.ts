@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Response } from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import helmet from 'helmet'
@@ -54,6 +54,9 @@ class App {
   }
 
   private initializeRoutes(routes: Routes[]) {
+    this.app.get('/', async (req, res: Response) => {
+      res.status(200).json({ message: 'ok' })
+    })
     routes.forEach(route => {
       this.app.use('/', route.router)
     })
