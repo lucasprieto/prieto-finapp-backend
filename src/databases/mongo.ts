@@ -1,4 +1,4 @@
-import { DB_HOST, DB_DATABASE, DB_USER, DB_PASSWORD } from '@/config'
+import { DB_HOST, DB_DATABASE, DB_USER, DB_PASSWORD } from '@/config/env'
 import { ConnectOptions } from 'mongoose'
 
 export const dbUri = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_DATABASE}`
